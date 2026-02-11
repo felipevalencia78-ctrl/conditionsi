@@ -547,10 +547,17 @@ export default function App() {
     border: "1px solid " + t.cardBorder,
     borderRadius: 18,
     padding: 20,
-    background: t.cardBg,
+    background:
+      theme === "dark"
+        ? "linear-gradient(180deg, rgba(15,23,42,0.95) 0%, rgba(30,64,175,0.55) 24%, rgba(59,130,246,0.25) 42%, " + t.cardBg + " 65%)"
+        : "linear-gradient(180deg, rgba(15,23,42,0.85) 0%, rgba(30,64,175,0.45) 26%, rgba(59,130,246,0.20) 44%, " + t.cardBg + " 65%)",
     boxShadow: t.shadow,
     backdropFilter: "blur(10px)",
     WebkitBackdropFilter: "blur(10px)",
+    // ✅ Option 2: pas de scroll de page, scroll interne si besoin
+    maxHeight: "calc(100vh - 220px)",
+    overflowY: "auto",
+    overscrollBehavior: "contain",
   };
 
   const btnBase = {
@@ -636,6 +643,8 @@ export default function App() {
       <div
         style={{
           minHeight: "100vh",
+          height: "100vh",
+          overflow: "hidden",
           background: t.pageBg,
           padding: "28px 14px",
           fontFamily: "system-ui, -apple-system, Segoe UI, Roboto, Arial",
@@ -1014,11 +1023,10 @@ export default function App() {
           )}
 
           <div style={{ marginTop: 14, textAlign: "center", color: t.muted, fontSize: 12 }}>
-          © Felipe VL - Produit Grammaire FLE
+            © Felipe VL - Produit Grammaire FLE
           </div>
         </div>
       </div>
     </>
   );
 }
-
