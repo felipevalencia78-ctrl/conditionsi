@@ -1014,7 +1014,7 @@ export default function App() {
           )}
 
           <div style={{ marginTop: 14, textAlign: "center", color: t.muted, fontSize: 12 }}>
-            Felipe VL - Produit Grammaire FLE
+          © Felipe VL - Produit Grammaire FLE
           </div>
         </div>
       </div>
